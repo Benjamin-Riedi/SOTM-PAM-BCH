@@ -2,7 +2,7 @@
 	<head>
 
 		<title>LabBot21</title>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="styles2.css">
 	
 	</head>
 	
@@ -11,14 +11,14 @@
 	
 
 	<body>
+		
 		<?php
-		$inhalt = "0";
-		$handle = fopen("test.txt", "w+"); 
+		$inhalt = "1";
+		$handle = fopen("used.txt", "w"); 
 		fwrite($handle, $inhalt);
 		fclose($handle); 
-		echo "fertig";
 		?>
-	<a href="index.html">Auftrag abbrechen</a>
+		<a href="site3.php"><button>Auftrag abbrechen</button></a>
 	
 	
 	</body>
