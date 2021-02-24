@@ -1,6 +1,6 @@
 import bluetooth
 
-serveraddr = 'DC:A6:32:F7:3B:04'
+serveraddr = 'DC:A6:32:0B:24:C2'
 port = 3
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 s.connect((serveraddr, port))
