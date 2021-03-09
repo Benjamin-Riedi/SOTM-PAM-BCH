@@ -13,22 +13,18 @@ while True:
     
     point(positionTarget[0],positionTarget[1],positionRobot[0],positionRobot[1],positionRobot[2])
     
+    middleRight = 300
+    middleLeft = 200
+    
+    
     if mode == 3:
         if used == 1:
+            if positionRobot[0] > middleRight:
+                point(pointRightMiddle
+            elif positionTarget[0] < middleLeft:
+                
             point(positionTarget[0],positionTarget[1],positionRobot[0],positionRobot[1],positionRobot[2])
             
-            angleTarget = getAngle(positionRobot[0], positionRobot[1], positionTarget[0], positionTarget[1])
-            
-            
-            while angleTarget - 5 > positionRobot[2]:
-                rightMotor(1)
-            while angleTarget + 5 < positionRobot[2]:
-                leftMotor(1)
-            while positionRobot[2] < angleTarget + 5 and positionRobot[2] > angleTarget - 5 and positionRobot[0] < positionTarget[0] - 5 and positionRobot[0] > positionTarget[0] + 5 and positionRobot[1] < positionTarget[1] - 5 and positionRobot[1] > positionTarget[1]:
-                ultSensor = dataUlt()
-                if ultSensor != 1:
-                    leftMotor(1)
-                    rightMotor(1)
         
         else:
             circle()

@@ -1,6 +1,9 @@
 import math
 
-def circle():
+def circle(positionRobot_x, positionRobot_y, angleRobot):
+    angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+    if circle == 1:
+        
     #circle Function
     
     
@@ -26,10 +29,34 @@ def leftMotor():
     
 def dataUlt():
     
+    
+    
+    
+
 def point(positionTarget_x, positionTarget_y, positionRobot_x, positionRobot_y, angleRobot):
-    angleTarget = getAngle(positionRobot[0], positionRobot[1], positionTarget[0], positionTarget[1])
+    
+    angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+    
+        
+    
+    if angleTarget - 5 > angleRobot:
+        rightMotor(1)
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+    if angleTarget + 5 < angleRobot:
+        leftMotor(1)
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+    if (positionRobot_x < positionTarget_x - 5 or positionRobot_x > positionTarget_x + 5) and (positionRobot_y < positionTarget_y - 5 or positionRobot_y > positionTarget_y + 5):
+        ultSensor = dataUlt()
+        if ultSensor != 1:
+            leftMotor(1)
+            rightMotor(1)
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+    else:
+        finished = 1
+        return finished
     
     
     
     
-    
+#trasnition Points
+#What if at Target
