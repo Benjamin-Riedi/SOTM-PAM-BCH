@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import time
 import os
+from functions import*
 
 
 # This system command loads the right drivers for the Raspberry Pi camera
@@ -91,8 +92,11 @@ while (True):
         position[3]=target_y
     
     cv2.imshow('View',image)
-    print(position)
- # Esc key to stop, otherwise repeat after 3 milliseconds
+    position2 = position+ordersCheck()+modeCheck()
+    print(time.strftime(" %H: %M: %S:"))
+    
+    print(position2)
+ # Esc key to stop, otherwise repeat after 3 milliseconds   positionTarget()+
     key_pressed = cv2.waitKey(3)
     if key_pressed == 27:    
         break

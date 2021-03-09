@@ -7,8 +7,8 @@ import os
 # This system command loads the right drivers for the Raspberry Pi camera
 os.system('sudo modprobe bcm2835-v4l2')
 
-w=480
-h=320
+w=960
+h=640
 
 my_camera = cv2.VideoCapture(0)
 my_camera.set(3,w)
