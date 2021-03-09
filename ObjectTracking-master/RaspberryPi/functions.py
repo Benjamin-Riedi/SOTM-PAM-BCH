@@ -2,8 +2,19 @@ import numpy as np
 import cv2
 import time
 import os
+import math 
 
 def positionRobot():
+    os.system('sudo modprobe bcm2835-v4l2')
+
+    w=480
+    h=320
+
+    my_camera = cv2.VideoCapture(0)
+    my_camera.set(3,w)
+    my_camera.set(4,h)
+    #time.sleep(2)
+
     success, image = my_camera.read()
     image = cv2.flip(image,-1)
     image = cv2.GaussianBlur(image,(5,5),0)
@@ -74,12 +85,36 @@ def positionRobot():
         cv2.line(image,(target_x,target_y-2*diam),(target_x,target_y+2*diam),(0,255,0),1)
         position[2]=target_x
         position[3]=target_y
+    positionrobot=[0,0,0]
+    positionrobot[0]=position[0]+((position[2]-position[0])/2)
+    positionrobot[1]=position[1]+((position[3]-position[1])/2)
+    if (position[0]-positionrobot[0])== 0 and (position[1]-positionrobot[1])<=0:
+        positionrobot[2] = 270
+    elif (position[0]-positionrobot[0])== 0 and (position[1]-positionrobot[1])>=0:
+        positionrobot[2] = 90
+    else:
+        positionrobot[2] = math.degrees(math.atan((position[1]-positionrobot[1])/(position[0]-positionrobot[0])))
+        if (position[0]-positionrobot[0])<=0:
+            positionrobot[2] = positionrobot[2] +180
+        elif (position[1]-positionrobot[1])<=0 and (position[0]-positionrobot[0])>=0:
+            positionrobot[2] = positionrobot[2]+360
+    return positionrobot
+
     
-    cv2.imshow('View',image)
-    return position    
 #Function positionRobot() finished
 
 def positionTarget():
+    os.system('sudo modprobe bcm2835-v4l2')
+
+    w=480
+    h=320
+
+    my_camera = cv2.VideoCapture(0)
+    my_camera.set(3,w)
+    my_camera.set(4,h)
+    #time.sleep(2)
+
+
     success, image = my_camera.read()
     image = cv2.flip(image,-1)
     image = cv2.GaussianBlur(image,(5,5),0)
@@ -124,28 +159,21 @@ def positionTarget():
 #Function positionAim() finished
 
 def ordersCheck():
-    usedDatei = open("/var/www/LabBot21/used.txt", "r")
-    used = usedDatei.read()
+    usedDatei = open("/var/www/LabBot_21/used.txt", "r")
+    used=[0]
+    used[0] = usedDatei.read()
     return used
 
 def modeCheck():
-    modeDatei = open("/var/www/LabBot21/mode.txt", "r")
-    mode = modeDatei.read()
+    modeDatei = open("/var/www/LabBot_21/mode.txt", "r")
+    mode=[0]
+    mode[0] = modeDatei.read()
     return mode
     
 # This system command loads the right drivers for the Raspberry Pi camera
 
 
 """
-os.system('sudo modprobe bcm2835-v4l2')
-
-w=480
-h=320
-
-my_camera = cv2.VideoCapture(0)
-my_camera.set(3,w)
-my_camera.set(4,h)
-time.sleep(2)
 
 while (True):
     
