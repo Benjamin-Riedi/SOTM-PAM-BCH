@@ -72,6 +72,15 @@ while (True):
         cv2.line(image,(target_x-2*diam,target_y),(target_x+2*diam,target_y),(0,255,0),1)
         cv2.line(image,(target_x,target_y-2*diam),(target_x,target_y+2*diam),(0,255,0),1)
         
+        linkstisch = ?
+        mittetisch = ?
+        rechtstisch = ?
+        anfangtisch = ?
+        if target_x >= linkstisch and target_x <= mittetisch and target_y <= anfangtisch:
+            target_x = ?
+        if target_x <= rechtstisch and target_x >= mittetisch and target_y <= anfangtisch:
+            target_x = ?
+            
         position[0]=target_x
         position[1]=target_y
         
