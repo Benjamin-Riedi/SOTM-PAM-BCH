@@ -17,7 +17,7 @@ time.sleep(2)
 while (True):
     success, image = my_camera.read()
     image = cv2.flip(image,-1)
-    image = cv2.GaussianBlur(image,(5,5),0)
+    #image = cv2.GaussianBlur(image,(5,5),0)
 
     image_HSV = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
     colour = str(image_HSV[h/2][w/2])
