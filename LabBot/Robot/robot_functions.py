@@ -2,18 +2,18 @@ import math
 
 def circle(positionRobot_x, positionRobot_y, angleRobot):
     angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
-    point1_x =
-    point1_y =
-    point2_x =
-    point2_y =.
-    point3_x =
-    point3_y =
-    point4_x =
-    point4_y =
-    point5_x =
-    point5_y =
-    point6_x =
-    point6_y =
+    point1_x = 340
+    point1_y = 82
+    point2_x = 315
+    point2_y = 260
+    point3_x = 100
+    point3_y = 250
+    point4_x = 90
+    point4_y = 50
+    point5_x = 45
+    point5_y = 235
+    point6_x = 375
+    point6_y = 220
     if circle == 0:
         finished = point(point1_x, point1_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
@@ -85,12 +85,20 @@ def point(positionTarget_x, positionTarget_y, positionRobot_x, positionRobot_y, 
         ultSensor = dataUlt()
         if ultSensor != 1:
             rightMotor(1)
+            leftMotor(0)
+        else:
+            leftMotor(0)
+            rightMotor(0)
         finished = 0
         #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
     elif angleTarget + 5 < angleRobot:
         ultSensor = dataUlt()
         if ultSensor != 1:
             leftMotor(1)
+            rightMotor(0)
+        else:
+            leftMotor(0)
+            rightMotor(0)
         finished = 0
         #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
     elif (positionRobot_x < positionTarget_x - 5 or positionRobot_x > positionTarget_x + 5) and (positionRobot_y < positionTarget_y - 5 or positionRobot_y > positionTarget_y + 5):
@@ -98,6 +106,9 @@ def point(positionTarget_x, positionTarget_y, positionRobot_x, positionRobot_y, 
         if ultSensor != 1:
             leftMotor(1)
             rightMotor(1)
+        else:
+            leftMotor(0)
+            rightMotor(0)
         finished = 0
         #angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
     else:

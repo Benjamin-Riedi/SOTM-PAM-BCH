@@ -1,9 +1,27 @@
 from functions import *
 from circle import*
 from time import sleep
+import bluetooth as bt
+
+
+mac = 'DC:A6:32:D0:BA:F6'
+port = 9
+backlog = 1
+size = 2048
+s = bt.BluetoothSocket(bt.RFCOMM)
+s.bind((mac, port))
+s.listen(backlog)
+client, clientInfo = s.accept()
+
+
+
 
 transition = 0
 while True:
+    
+    data = client.recv(size)
+    btlist = data.decode()
+    bluetooth = btlist.strip("[']").split("', '")
     mode = bluetooth[5]
     used = bluetooth[6]
     positionRobot[0] = bluetooth[0]
@@ -16,10 +34,10 @@ while True:
     
     middleRight = 300
     middleLeft = 200
-    pointRightMiddle_x =
-    pointRightMiddle_y =
-    pointLeftMiddle_x =
-    pointLeftMiddle_y =
+    pointRightMiddle_x = 360
+    pointRightMiddle_y = 260
+    pointLeftMiddle_x = 100
+    pointLeftMiddle_y = 250
     if mode == 3:
         if used == 1:
             if positionRobot[0] > middleLeft and positionTarget[0] < middleLeft:

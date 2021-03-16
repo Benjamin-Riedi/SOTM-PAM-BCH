@@ -5,8 +5,8 @@ import cv2
 import time
 import os
 import bluetooth
-serveraddr = 'DC:A6:32:0B:24:C2'
-port = 3
+serveraddr = 'DC:A6:32:D0:BA:F6'
+port = 9
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 s.connect((serveraddr, port))
 
@@ -158,10 +158,10 @@ while (True):
         cv2.circle(image,(target_x,target_y),diam,(0,255,0),1)
         cv2.line(image,(target_x-2*diam,target_y),(target_x+2*diam,target_y),(0,255,0),1)
         cv2.line(image,(target_x,target_y-2*diam),(target_x,target_y+2*diam),(0,255,0),1)
-        linkstisch = ?
-        mittetisch = ?
-        rechtstisch = ?
-        anfangtisch = ?
+        linkstisch = 125
+        mittetisch = 212
+        rechtstisch = 300
+        anfangtisch = 233
         if target_x >= linkstisch and target_x <= mittetisch and target_y <= anfangtisch:
             target_x = ?
         if target_x <= rechtstisch and target_x >= mittetisch and target_y <= anfangtisch:
@@ -186,12 +186,12 @@ while (True):
         elif (position[1]-positionrobot[1])<=0 and (position[0]-positionrobot[0])>=0:
             positionrobot[2] = positionrobot[2]+360
     position2 = positionrobot+ordersCheck()+modeCheck()
-    print(time.strftime(" %H: %M: %S:"))
+    #print(time.strftime(" %H: %M: %S:"))
     
     
     
     
-    s.send(position2)
+    s.send(str(position2))
     print(position2)
     
     
