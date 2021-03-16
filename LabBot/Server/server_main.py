@@ -161,11 +161,11 @@ while (True):
         linkstisch = 125
         mittetisch = 212
         rechtstisch = 300
-        anfangtisch = 233
+        anfangtisch = 233 
         if target_x >= linkstisch and target_x <= mittetisch and target_y <= anfangtisch:
-            target_x = ?
-        if target_x <= rechtstisch and target_x >= mittetisch and target_y <= anfangtisch:
-            target_x = ?
+            target_x = 120
+        elif target_x <= rechtstisch and target_x >= mittetisch and target_y <= anfangtisch:
+            target_x = 315
         
         
         

@@ -13,8 +13,8 @@ s.bind((mac, port))
 s.listen(backlog)
 client, clientInfo = s.accept()
 
-
-
+last = 0
+place = 3
 
 transition = 0
 while True:
@@ -33,13 +33,14 @@ while True:
     point(positionTarget[0],positionTarget[1],positionRobot[0],positionRobot[1],positionRobot[2])
     
     middleRight = 300
-    middleLeft = 200
+    middleLeft = 125
     pointRightMiddle_x = 360
     pointRightMiddle_y = 260
     pointLeftMiddle_x = 100
     pointLeftMiddle_y = 250
     if mode == 3:
         if used == 1:
+            last = 0
             if positionRobot[0] > middleLeft and positionTarget[0] < middleLeft:
                 transitionNeed = 1
             elif positionRobot[0] < middleRight and positionTarget[0] > middleRight:
@@ -76,13 +77,21 @@ while True:
             
         
         else:
-            circle()
+            if last = 0
+                if positionRobot[0] < 200:
+                    place = 0
+                elif positionRobot[0] > 200:
+                    place = 1
+            
+            circle(positionRobot[0], positionRobot[1], positionRobot[2],place)
+            last = 1
         
     elif mode == 2:
         
-        circle()
+        circle(positionRobot[0], positionRobot[1], positionRobot[2])
     
     elif mode == 1:
+        last = 0
         
         
         

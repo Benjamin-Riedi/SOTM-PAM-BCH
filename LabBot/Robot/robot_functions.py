@@ -1,7 +1,7 @@
 import math
 
-def circle(positionRobot_x, positionRobot_y, angleRobot):
-    angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
+def circle(positionRobot_x, positionRobot_y, angleRobot,place):
+    
     point1_x = 340
     point1_y = 82
     point2_x = 315
@@ -14,27 +14,37 @@ def circle(positionRobot_x, positionRobot_y, angleRobot):
     point5_y = 235
     point6_x = 375
     point6_y = 220
+    if place == 0:
+        circle = 3
+    elif place == 1:
+        circle = 0  
+    
     if circle == 0:
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, point1_x, point1_y)
         finished = point(point1_x, point1_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
             circle = 1
             finished = 0
     elif circle == 1:
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, point2_x, point2_y)
         finished = point(point2_x, point2_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
             circle = 2
             finished = 0
     elif circle == 2:
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, point3_x, point3_y)
         finished = point(point3_x, point3_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
             circle = 3
             finished = 0
     elif circle == 3:
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, point4_x, point4_y)
         finished = point(point4_x, point4_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
             circle = 4
             finished = 0
     elif circle == 4:
+        #angleTarget = getAngle(positionRobot_x, positionRobot_y, point5_x, point5_y)
         finished = point(point5_x, point5_y,positionRobot[0],positionRobot[1],positionRobot[2])
         if finished == 1:
             circle = 5
