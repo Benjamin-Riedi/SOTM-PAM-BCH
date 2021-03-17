@@ -48,6 +48,7 @@ while (True):
         coordinates = cv2.moments(contours[largest])
         target_x = int(coordinates['m10']/coordinates['m00'])
         target_y = int(coordinates['m01']/coordinates['m00'])
+        print(target_x,"   ",target_y)
         # Pick a suitable diameter for our target (grows with the contour)
         diam = int(np.sqrt(area)/4)
         # draw on a target
