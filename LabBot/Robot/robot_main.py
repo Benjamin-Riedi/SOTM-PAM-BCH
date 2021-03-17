@@ -1,6 +1,7 @@
 from functions import *
 from circle import*
 from time import sleep
+import webbrowser
 import bluetooth as bt
 
 
@@ -73,6 +74,8 @@ while True:
                 finished = point(positionTarget[0], positionTarget[1],positionRobot[0],positionRobot[1],positionRobot[2])
                 if finished == 1:
                     sleep(5)
+                    webbrowser.open("10.2.42.198/LabBot_21/site3.php")
+                    
                     
             
         
