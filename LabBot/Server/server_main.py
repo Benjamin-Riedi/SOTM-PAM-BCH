@@ -1,4 +1,4 @@
-from functions import*
+from server_functions import*
 import math
 import numpy as np
 import cv2
@@ -33,8 +33,8 @@ while (True):
     
     
     
-    lower_pink = np.array([140,150,125])
-    upper_pink = np.array([180,230,170])
+    lower_pink = np.array([145,97,210])
+    upper_pink = np.array([185,137,250])
     
     
     
@@ -88,8 +88,8 @@ while (True):
         
         
         
-    lower_yellow = np.array([35,130,80])
-    upper_yellow = np.array([50,170,130])
+    lower_yellow = np.array([6,97,215])
+    upper_yellow = np.array([46,137,255])
     
     
     
@@ -126,8 +126,8 @@ while (True):
         
         
         
-    lower_green = np.array([35,130,80])
-    upper_green = np.array([50,170,130])
+    lower_green = np.array([40,80,160])
+    upper_green = np.array([80,120,200])
     
     
     
