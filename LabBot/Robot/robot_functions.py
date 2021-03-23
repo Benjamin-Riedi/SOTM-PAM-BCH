@@ -72,21 +72,21 @@ def getAngle(xRobot, yRobot, xTarget, yTarget):
             angle = angle+360
     return angle
 
-def rightMotor():
+def rightMotor(x):
+    print(x)
     #right Motor on
     
     
-def leftMotor():
-    
+def leftMotor(x):
+    print(x)
     
 def dataUlt():
-    
-def volume():
-    
+    print("Data Ult")
+#def volume():
+#    print("volume")
     
 
 def point(positionTarget_x, positionTarget_y, positionRobot_x, positionRobot_y, angleRobot):
-    
     angleTarget = getAngle(positionRobot_x, positionRobot_y, positionTarget_x, positionTarget_y)
     
     

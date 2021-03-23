@@ -1,11 +1,14 @@
 from robot_functions import *
-from circle import*
 from time import sleep
 import webbrowser
 import bluetooth as bt
 
+mode = 1
+used = 0
+positionRobot = [0,0,0]
+positionTarget = [0,0]
 
-mac = 'DC:A6:32:D0:BA:F6'
+mac = 'DC:A6:32:D0:BB:86'
 port = 9
 backlog = 1
 size = 2048
@@ -22,9 +25,12 @@ while True:
     
     data = client.recv(size)
     btlist = data.decode()
-    bluetooth = btlist.strip("[']").split("', '")
-    mode = bluetooth[5]
-    used = bluetooth[6]
+    print(btlist, type(btlist))
+    bluetooth = btlist.strip("u]['").split(
+		" ' , ")
+    print(bluetooth)
+    mode = bluetooth[6]
+    used = bluetooth[5]
     positionRobot[0] = bluetooth[0]
     positionRobot[1] = bluetooth[1]
     positionRobot[2] = bluetooth[2]
@@ -46,7 +52,7 @@ while True:
                 transitionNeed = 1
             elif positionRobot[0] < middleRight and positionTarget[0] > middleRight:
                 transitionNeed = 2
-            if transitionNeed == 1
+            if transitionNeed == 1:
                 if transition == 0:
                     finished = point(pointRightMiddle_x, pointRightMiddle_y,positionRobot[0],positionRobot[1],positionRobot[2])
                     if finished == 1:
@@ -58,7 +64,7 @@ while True:
                         transitionNeed = 0
                         finished = 0
                         transition = 0
-            elif:
+            elif transitionNeed == 2:
                 if transition == 0:
                     finished = point(pointLeftMiddle_x, pointLeftMiddle_y,positionRobot[0],positionRobot[1],positionRobot[2])
                     if finished == 1:
@@ -80,7 +86,7 @@ while True:
             
         
         else:
-            if last = 0
+            if last == 0:
                 if positionRobot[0] < 200:
                     place = 0
                 elif positionRobot[0] > 200:
