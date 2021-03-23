@@ -5,12 +5,12 @@ import cv2
 import time
 import os
 import bluetooth
-serveraddr = 'DC:A6:32:D0:BA:F6'
+serveraddr = 'DC:A6:32:D0:BB:86'
 port = 9
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 s.connect((serveraddr, port))
 
-
+position2 = [0,0,0,0,0,0,0]
 # This system command loads the right drivers for the Raspberry Pi camera
 os.system('sudo modprobe bcm2835-v4l2')
 
@@ -185,7 +185,12 @@ while (True):
             positionrobot[2] = positionrobot[2] +180
         elif (position[1]-positionrobot[1])<=0 and (position[0]-positionrobot[0])>=0:
             positionrobot[2] = positionrobot[2]+360
-    position2 = positionrobot+ordersCheck()+modeCheck()
+            
+    order = ordersCheck()
+    mode = modeCheck()
+    position2 = positionrobot
+    position2.append(int(order))
+    position2.append(int(mode))
     #print(time.strftime(" %H: %M: %S:"))
     
     
