@@ -33,8 +33,8 @@ while (True):
     
     
     
-    lower_pink = np.array([145,97,210])
-    upper_pink = np.array([185,137,250])
+    lower_pink = np.array([128,130,146])
+    upper_pink = np.array([208,210,226])
     
     
     
@@ -88,8 +88,8 @@ while (True):
         
         
         
-    lower_yellow = np.array([6,97,215])
-    upper_yellow = np.array([46,137,255])
+    lower_yellow = np.array([0,120,161])
+    upper_yellow = np.array([63,200,241])
     
     
     
@@ -126,8 +126,8 @@ while (True):
         
         
         
-    lower_green = np.array([40,80,160])
-    upper_green = np.array([80,120,200])
+    lower_green = np.array([22,80,132])
+    upper_green = np.array([102,160,212])
     
     
     
@@ -180,7 +180,7 @@ while (True):
     elif (position[0]-positionrobot[0])== 0 and (position[1]-positionrobot[1])>=0:
         positionrobot[2] = 90
     else:
-        positionrobot[2] = math.degrees(math.atan((position[1]-positionrobot[1])/(position[0]-positionrobot[0])))
+        positionrobot[2] = int(math.degrees(math.atan((position[1]-positionrobot[1])/(position[0]-positionrobot[0]))))
         if (position[0]-positionrobot[0])<=0:
             positionrobot[2] = positionrobot[2] +180
         elif (position[1]-positionrobot[1])<=0 and (position[0]-positionrobot[0])>=0:
