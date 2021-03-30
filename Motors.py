@@ -24,8 +24,6 @@ import RPi.GPIO as GPIO
 
 mode=GPIO.getmode()
 
-# GPIO.cleanup()
-
 left_forward=17
 left_backward=27
 right_forward=23
@@ -65,14 +63,14 @@ def right_reverse(x):
     GPIO.output(right_backward, GPIO.LOW)
 
 for y in range(2):
-
+    
     left_Forward(1)
 
-    left_reverse(1)
+    #left_reverse(1)
 
     right_Forward(1)
 
-    right_reverse(1)
+    #right_reverse(1)
 # GPIO.output(left_forward, GPIO.LOW)
 # GPIO.output(left_backward, GPIO.LOW)
 

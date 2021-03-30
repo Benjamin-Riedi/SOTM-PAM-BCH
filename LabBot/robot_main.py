@@ -2,6 +2,22 @@ from robot_functions import *
 from time import sleep
 import webbrowser
 import bluetooth as bt
+import sys
+import time
+import RPi.GPIO as GPIO
+
+left_forward=17
+left_backward=27
+right_forward=23
+right_backward=24
+sleeptime=1
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(left_forward, GPIO.OUT)
+GPIO.setup(left_backward, GPIO.OUT)
+GPIO.setup(right_forward, GPIO.OUT)
+GPIO.setup(right_backward, GPIO.OUT)
 
 mode = 1
 used = 0
@@ -36,7 +52,6 @@ while True:
     positionTarget[0] = bluetooth[3]
     positionTarget[1] = bluetooth[4]
     
-    point(positionTarget[0],positionTarget[1],positionRobot[0],positionRobot[1],positionRobot[2])
     
     middleRight = 300
     middleLeft = 125

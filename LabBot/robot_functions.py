@@ -1,5 +1,6 @@
 import math
 
+
 def circle(positionRobot_x, positionRobot_y, angleRobot, place):
     
     point1_x = 340
@@ -73,12 +74,21 @@ def getAngle(xRobot, yRobot, xTarget, yTarget):
     return angle
 
 def rightMotor(x):
-    print(x)
+    if x==1:
+        GPIO.output(right_forward, GPIO.HIGH)
+    elif x==0:
+        GPIO.output(right_forward, GPIO.LOW)
+    
     #right Motor on
     
     
 def leftMotor(x):
-    print(x)
+    if x==1:
+        GPIO.output(right_forward, GPIO.HIGH)
+    elif x==0:
+        GPIO.output(right_forward, GPIO.LOW)
+    
+
     
 def dataUlt():
     print("Data Ult")
